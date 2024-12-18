@@ -1,0 +1,221 @@
+{
+	"info": {
+		"_postman_id": "1f7f89da-6c52-48eb-b1f4-d491ae7720dd",
+		"name": "home_assignment2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40235734"
+	},
+	"item": [
+		{
+			"name": "Create_change_request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var resp = pm.response.json();\r",
+							"var sysid = resp.result.sys_id;\r",
+							"pm.globals.set(\"cr_SysId\", sysid);\r",
+							"pm.test(\"Status code is 201\", function(){\r",
+							"    pm.response.to.have.status(201)\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"description\": \"Create change request\",\r\n    \"short_description\": \"Chaining of requests\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dev242313.service-now.com/api/now/table/change_request",
+					"protocol": "https",
+					"host": [
+						"dev242313",
+						"service-now",
+						"com"
+					],
+					"path": [
+						"api",
+						"now",
+						"table",
+						"change_request"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read_change_request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://dev242313.service-now.com/api/now/table/:{tableName}/:{sys_id}",
+					"protocol": "https",
+					"host": [
+						"dev242313",
+						"service-now",
+						"com"
+					],
+					"path": [
+						"api",
+						"now",
+						"table",
+						":{tableName}",
+						":{sys_id}"
+					],
+					"variable": [
+						{
+							"key": "{tableName}",
+							"value": "change_request"
+						},
+						{
+							"key": "{sys_id}",
+							"value": "4ba10d23c31612107eee1c377d013160"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update_change_request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Body matches string\", function(){\r",
+							"    pm.expect(pm.response.text()).to.include(\"My laptop is replaced\");\r",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"description\": \"Update change request\",\r\n    \"short_description\": \"Chaining of requests\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dev242313.service-now.com/api/now/table/:{tableName}/:{sys_id}",
+					"protocol": "https",
+					"host": [
+						"dev242313",
+						"service-now",
+						"com"
+					],
+					"path": [
+						"api",
+						"now",
+						"table",
+						":{tableName}",
+						":{sys_id}"
+					],
+					"variable": [
+						{
+							"key": "{tableName}",
+							"value": "change_request"
+						},
+						{
+							"key": "{sys_id}",
+							"value": "4ba10d23c31612107eee1c377d013160"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete_change_request",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://dev242313.service-now.com/api/now/table/:{tableName}/:{sys_id}",
+					"protocol": "https",
+					"host": [
+						"dev242313",
+						"service-now",
+						"com"
+					],
+					"path": [
+						"api",
+						"now",
+						"table",
+						":{tableName}",
+						":{sys_id}"
+					],
+					"variable": [
+						{
+							"key": "{tableName}",
+							"value": "change_request"
+						},
+						{
+							"key": "{sys_id}",
+							"value": "4ba10d23c31612107eee1c377d013160"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "F0a7!Tx@DoJi",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "admin",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
